@@ -1,0 +1,660 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+@import "button.sass"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+@mixin opacity($opacity)
+	opacity: $opacity / 100
+	filter: alpha(opacity=$opacity)
+
+.hidden
+	display: none
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #fff
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	overflow-x: hidden
+	h1, h2, h3, h4, h5, h6
+		font-family: 'Raleway', sans-serif
+		font-weight:  600
+		color: #555
+	p, li
+		font-family: 'Montserrat', sans-serif
+		font-weight: 300
+		color: #8c8c8c
+		font-size: 16px
+	li
+		list-style-type: none
+	a
+		font-family: 'Montserrat', sans-serif
+		font-weight: 300
+		&:hover, &:active
+			color: $accent
+			text-decoration: none
+			cursor: pointer
+	button
+		&:focus
+			outline: none
+			outline-offset: 0
+			border: none
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+::selection
+	background-color: $accent
+	color: #fff
+
+section, 
+header
+	position: relative
+
+.header
+	min-height: 900px
+	&_nav
+		z-index: 11
+		padding: 50px
+		a
+			color: #fff
+			font-size: 14px
+			font-weight: 300
+			font-family: 'Montserrat', sans-serif
+			&:hover
+				color: $accent-light
+
+.topline
+	&_logo
+		float: left
+	&_nav
+		line-height: 20px
+		text-align: center
+		a
+			display: inline-block
+			padding: 15px 8px
+	&_box
+		padding: 15px 8px
+
+
+.hamburger
+	position: fixed
+	top: 20px
+	right: 20px
+	width: 60px
+	height: 60px
+	z-index: 200
+	border: none
+	padding: 0
+	display: none
+	.hamburger-box
+		width: 34px
+	.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before
+		border-radius: 0
+		width: 34px
+		height: 2px
+		background-color: #fff
+
+.topline_menu
+	position: fixed
+	width: 100%
+	height: 100%
+	background-color: rgba(0,0,0,.8)
+	z-index: 150
+	top: 0
+	left: 0
+	display: none
+	ul, li
+		padding: 0
+		margin: 0
+	ul
+		margin-top: 10vh
+		text-align: center
+		a
+			position: relative
+			color: #fff
+			display: block
+			text-transform: uppercase
+			letter-spacing: 4px
+			height: 60px
+			outline: none
+			&:hover
+				color: $accent				
+			span
+				display: block
+				position: relative				
+				top: -44px
+				left: 0
+				height: 100%
+				transition: all .4s ease
+				&:hover
+					background-color: rgba(255,255,255,.1)
+
+.header
+	&:before
+		position: absolute
+		height: 100%
+		width: 100%
+		content: ''
+		background-color: rgba(0,0,0, .5)
+	.top_descr
+		display: table-row
+		.top_centered
+			display: table-cell
+			text-align: center
+			vertical-align: middle
+
+
+.top_form
+	height: 633px
+	background-color: rgba(0,0,0, .5)
+	transition: all .6s ease
+	text-align: center
+	input,
+	select
+		width: 70%
+		height: 46px
+		margin: 23px 0
+	input:first-child
+		margin-top: 90px
+	input, 
+	select
+		background-color: rgba(255,255,255,.07)
+		border: none
+		font-family: 'Montserrat', sans-serif
+		font-weight: 400
+		font-size: 20px
+		color: #fff
+		&::-webkit-input-placeholder
+			color: #fff
+			opacity: 1
+		&::-moz-placeholder
+			color: #fff
+			opacity: 1
+		&::-ms-input-placeholder
+			color: #fff
+		&:focus
+			outline: none
+			background-color: #fff
+			color: #000
+			font-weight: 600
+			&::-webkit-input-placeholder
+				color: #000
+				opacity: 1
+			&::-moz-placeholder
+				color: #000
+				opacity: 1
+			&::-ms-input-placeholder
+				color: #000
+
+//-- Valid form color --
+body 
+	input:required:valid,
+	select:required:valid
+		color: #000
+		background-color: #fff
+		font-weight: 600
+
+	.terms
+		position: relative
+		width: 70%
+		display: inline-block
+		margin-bottom: 40px
+		p
+			text-align: left
+			text-indent: 25px
+			margin-top: 0
+			color: #fff
+		.checkbox
+			position: absolute
+			width: 19px
+			height: 19px
+			margin: 0
+			left: 0
+			top: 3px
+			opacity: 0
+		//-- Custom checkbox --
+		.checkmark
+			position: absolute
+			top: 3px
+			left: 0
+			width: 19px
+			height: 19px
+			border: 2px solid #fff
+			border-radius: 3px
+			background-color: transparent
+			cursor: pointer
+			&:after
+				content: ''
+				position: absolute
+				display: none								
+				left: 5px
+				top: 2px
+				width: 5px
+				height: 10px
+				border: solid white
+				border-width: 0 3px 3px 0
+				-webkit-transform: rotate(45deg)
+				-ms-transform: rotate(45deg)
+				transform: rotate(45deg)
+
+		label:hover input ~ .checkmark
+			background-color: rgba(255,255,255,.2)
+		label input:checked ~ .checkmark:after
+			display: block
+
+
+section
+	position: relative
+	padding: 70px 0
+	h2
+		text-align: center
+		margin: 0 0	20px
+
+//----------------------
+//-- Services section --
+.s-services
+	text-align: center
+
+.service_box
+	text-align: center
+	min-height: 205px
+	cursor: arrow
+	&:hover
+		h2
+			color: $accent
+			transition: all .2s ease
+	&:after
+		content: ''
+		position: absolute
+		left: 30%
+		bottom: 0
+		width: 40%
+		height: 4px
+		background-color: #ccc
+		opacity: .5
+	&:hover
+		cursor: arrow !important
+		&:after
+			background-color: $accent
+			transition: all .2s ease
+
+//---------------------
+//-- Project section --
+.s-projects
+	text-align: center
+	ul,
+	li
+		list-style-type: none
+		padding: 0
+		margin: 0
+		text-align: center
+	li
+		display: inline-block
+		margin: 0 10px
+		cursor: pointer
+		font-family: 'Montserrat', sans-serif
+		font-size: 14px
+		color: #8c8c8c
+		font-weight: 300
+		border: 1px #ebebeb solid
+		border-radius: 3px
+		padding: 10px 24px
+		&.active
+			color: #fff
+			background-color: $accent
+	ul
+		margin-bottom: 50px
+	&_header
+		text-align: center
+
+.p_box
+	&-img
+		overflow: hidden
+		position: relative
+	&-text
+		text-align: left
+		background-color: #fbfaf8
+		padding: 30px 28px 27px
+		.h3
+			color: $accent-light
+			font-size: 20px
+			font-family: 'Raleway', sans-serif
+			margin: 0
+			margin-bottom: 14px
+		p
+			font-size: 14px
+			color: #d1d1d1
+			margin: 0
+
+.project_item
+	margin-bottom: 30px
+	display: none
+	&:hover
+		.p_box-over
+			opacity: 1
+			padding-top: 30%
+		.p_box-text
+			background-color: #362f2d
+			.h3
+				color: #fff
+			p
+				color: $accent-light
+
+.p_box-over
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: rgba(17,17,17,.7)
+	text-align: center
+	padding-top: 15%
+	opacity: 0
+	transition: all .3s ease
+	a
+		color: #fff
+		margin: 15px
+		font-size: 25px
+		&:hover
+			color: $accent-light
+			transition: all .2s ease
+
+.proj_descr
+	background-color: #fff
+	max-width: 500px
+	margin: auto
+	position: relative
+	p,
+	.h3
+		padding: 20px
+		padding-bottom: 0
+	.h3
+		margin-bottom: 10px
+		text-align: center
+		text-transform: uppercase
+		font-weight: 400
+		margin-top: 20px
+	p
+		margin-top: 0
+	img
+		width: 100%
+		margin-top: 20px
+
+.projects_after
+	width: 100%
+	text-align: center
+	margin-top: 60px
+
+//--------------------
+//-- Mobile section --
+.s-mobile
+	background-color: #FAF9F7
+	padding: 70px 0 0
+	svg
+		color: $accent-light
+
+//----------------------
+//-- Carousel section --
+.carousel
+	&_header
+		p
+			margin-top: 0
+	text-align: center
+	.owl-nav
+		margin-top: 40px
+	.owl-prev,
+	.owl-next
+		display: inline-block
+		color: #fff
+		font-size: 25px
+		background-color: $accent-light
+		margin: 0 8px
+		padding: 0
+		height: 25px
+		width: 25px
+		position: relative
+		border-radius: 50%
+		svg
+			position: absolute
+			top: 0
+			left: 0
+		&:hover
+			background-color: #fff
+			color: $accent-light
+			transition: all .3s ease
+	&_box
+		position: relative
+		border: 1px solid #f8f8f8
+		transition: all .2s ease
+		.box-text
+			padding: 25px 20px
+			text-align: left
+			transition: all .2s ease
+			a
+				color: $accent-light
+				position: relative
+				&:after
+					content: ''
+					position: absolute
+					display: inline-block
+					bottom: 4px
+					right: -20px
+					border: 5px solid transparent
+					border-left: 5px solid $accent-light
+		&:hover
+			.box-text
+				position: absolute
+				background-color: #35302D
+				transition: all .2s ease
+				p
+					color: #fff
+				h4
+					color: $accent-light
+			&:after
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				background-color: darken($accent, 40)
+				opacity: .7
+				transition: all .2s ease
+
+.button
+	opacity: 1
+	width: 170px
+	height: 53px
+	font-size: 14px
+	font-weight: 700
+	text-transform: uppercase
+	padding: 10px
+	letter-spacing: 0.5px
+
+//--------------------
+//-- Footer section --
+.footer
+	background-color: #191919
+	padding: 80px 0
+	.h1, 
+	.h2, 
+	.h3
+		color: #fff
+	.h1
+		font-size: 24px
+	div
+		position: relative
+	a
+		color: $accent
+	p
+		color: #555
+
+	&_box-1
+		a
+			width: 100%
+			margin-bottom: 30px
+			position: relative
+			font-weight: 400
+			font-size: 14px
+		.read-arr
+			&:after
+				content: ''
+				position: absolute
+				display: inline-block
+				bottom: 4px
+				right: -20px
+				border: 5px solid transparent
+				border-left: 5px solid $accent
+	&_box-2
+		.underscored
+			position: relative
+			&:after
+				content: ''
+				position: absolute
+				width: 100%
+				height: 1px
+				background-color: #333
+				bottom: -20px
+				left: 0
+		.footer_post
+			h5
+				font-size: 12px
+				font-family: 'Montserrat', sans-serif
+				font-weight: 300
+				color: #363636
+				transition: all .3s ease
+				margin-bottom: 10px
+			p
+				color: #555555
+				margin-top: 0
+				margin-bottom: 35px
+				font-size: 14px
+				transition: all .3s ease
+			&:hover
+				h5
+					color: #fff
+					transition: all .3s ease
+				p
+					color: $accent
+					transition: all .3s ease
+	&_box-4
+		padding: 0
+		text-align: center
+		.thumbbox
+			img
+				margin: 5px 5px
+				&:hover
+					opacity: .5
+					transform: scale(1.1)
+					transition: all .8s ease
+
+.bottline
+	background-color: #101010
+	color: #333
+	position: absolute
+	width: 100%
+	padding: 30px 0
+	text-align: center
+	font-size: 10px
+	.copy
+		text-align: left
+		display: inline-block
+	.designed
+		text-align: right
+		display: inline-block
+	p
+		font-size: 13px
+	a
+		font-size: 13px
+		color: $accent
+		display: inline-block
+		&:hover
+			color: $accent-light
+			transition: color .1s ease
+
+.preloader
+	position: fixed
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	z-index: 1000
+	background-color: #222
+	.pulse
+		position: relative
+		left: 50%
+		top: 50vh
+		margin:
+			left: -40px
+			top: -40px
+		&::before, &::after
+			content: ''
+			border: 5px solid #323232
+			width: 80px
+			height: 80px
+			border-radius: 500px
+			position: absolute
+		&::before
+			animation: pulse-outer .8s ease-in infinite
+		&::after
+			animation: pulse-inner .8s linear infinite
+
+//кифреймы используются свойством animation; в них мы включаем миксин, написаный выше
+@keyframes pulse-outer
+	0%
+		@include opacity(100)
+	50%
+		@include opacity(50)
+	100%
+		@include opacity(0)
+
+@keyframes pulse-inner
+	0%
+		@include opacity(0)
+		transform: scale(0)
+	100%
+		@include opacity(100)
+		transform: scale(1)
+
+@import "media" // Всегда в конце
